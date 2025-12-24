@@ -4,7 +4,7 @@ MyEnsembleNet = MyEnsembleNet.to(device)
 triplet_loss = ContrastLoss().to(device)
 
 #---------------init----------------------
-w = 0.6  # 初始：完全雾
+w = 1
 L_prev = float('inf')
 eta = 1
 w_min = 0.2
@@ -14,7 +14,7 @@ I_neg = None
 iteration = 0
 for epoch in range(train_epoch):
     # ......
-    for batch_idx, (hazy, clean) in enumerate(train_loader):  # 迭代训练集加载器，获取输入图像对，包括有雾的输入图像hazy和清晰的目标图像clean。
+    for batch_idx, (hazy, clean) in enumerate(train_loader):
 
         hazy = hazy.to(device)
         clean = clean.to(device)
